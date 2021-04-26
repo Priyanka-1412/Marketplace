@@ -1,0 +1,28 @@
+<h1><%= @listing.title %></h1>
+
+<%= image_tag @listing.image, :class => 'feature' if @listing.image.present? %>
+
+<ul>
+  <li>Title: <%= @listing.title %></li>
+  <li>Description: <%= @listing.description %></li>
+  <l1>Category: <%= @listing.category.name%></l1>
+  <li>Price: <%= number_to_currency @listing.price %></li>
+  <li>Phone: <%= number_to_phone @listing.phone,country_code: 61, raise: true %></li>
+  <li>Suburb: <%= @listing.suburb %></li>
+  <li>Postcode: <%= @listing.postcode %></li>
+  <li>Availability: <%= @listing.availability %></li>
+</ul>
+
+<div class="sms">
+  <form action="/alert">
+    <label>Message</label>
+    <%= hidden_field_tag :listing_id, @listing.id %>
+    <input type="text" placeholder="Hi, I'm interested, Is this still available?" name= "message">
+  <button type="submit" name="button">Send</button>
+  </form>
+</div>
+
+<% if @current_user.id == @listing.user_id %>
+  <%= link_to "Edit", edit_listing_path %>
+  <%= link_to "Remove Post", @listing, :method => 'delete', :data => { :confirm => 'Are you sure, You want to remove your post?' }%>
+<% end %>

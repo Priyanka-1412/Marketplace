@@ -1,0 +1,42 @@
+<%= form_for @listing do |f| %>
+
+  <% if @listing.errors.any? %>
+    <ol>
+      <% @listing.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description,  placeholder: "Any Extra Details" %>
+
+  <%= f.label :category_id %>
+  <%= f.select :category_id, Category.pluck(:name, :id), :include_blank => true %>
+
+  <%= f.label :condition %>
+  <%= f.select :condition, ["New", "Used", "Used - Like new", "Used - Good", "Used - Fair"],:include_blank => true%>
+
+  <%= f.label :price %>
+  <%= f.number_field :price, placeholder: "$" %>
+
+  <%= f.label :phone %>
+  <%= f.number_field :phone, placeholder: "0412345678" %>
+
+  <%= f.label :suburb %>
+  <%= f.text_field :suburb, placeholder: "Suburb & State" %>
+
+  <%= f.label :postcode %>
+  <%= f.number_field :postcode, placeholder: "Postcode" %>
+
+  <%= f.label :availability %>
+  <%= f.select :availability, ["Available", "Sold out"] %>
+
+  <%= f.label :image %>
+  <%= f.file_field :image, accept:"image/png,image/gif,image/jpeg,image/jpg", class: "upload"%>
+
+  <%= f.submit %>
+<% end %>

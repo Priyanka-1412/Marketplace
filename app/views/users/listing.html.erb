@@ -1,0 +1,5 @@
+<!-- To get individual post of seller -->
+<h2>My Listings</h2>
+<% @user_list.each do |list| %>
+  <p><%= link_to list.title, listing_path(list.id)%></p>
+<% end %>

@@ -1,0 +1,7 @@
+<h2>Search Result</h2>
+<% @listings.each do |listing| %>
+<%= image_tag listing.image, :class => 'feature' if listing.image.present? %>
+<%= link_to listing.title, listing %></h2>
+<%= listing.price %>
+
+<% end %>
