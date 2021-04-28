@@ -11,8 +11,9 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="navbar navbar-dark bg-dark">
       <% if @current_user.present? %>
+
         <%= link_to "Users", users_path if @current_user.admin? %>
         <%= link_to "Browse All", listings_path %>
         <%= link_to "Category", categories_path  %>
@@ -22,11 +23,15 @@
         <%= link_to "Create New Post", new_listing_path %>
         ||
         <%= link_to "Logout, #{@current_user.email}", login_path, :method => 'delete' %>
-        <form action="/search">
-          <label>Search Item:</label>
-          <input type="text" id="search" placeholder="search" name="q" aria-label="Search" size="30">
-        <button type="submit" name="button">Search</button>
-        </form>
+
+        <div class="">
+          <form action="/search">
+            <label>Search Item:</label>
+            <input type="text" id="search" placeholder="search" name="q" aria-label="Search" size="30">
+          <button type="submit" name="button">Search</button>
+          </form>
+        </div>
+
       <% else %>
         <%= link_to "Register", new_user_path %>
         <%= link_to "Sign in", login_path %>
