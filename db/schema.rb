@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_004942) do
+ActiveRecord::Schema.define(version: 2021_04_27_054125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_04_25_004942) do
     t.integer "user_id"
     t.text "title"
     t.text "description"
-    t.text "category"
     t.text "image"
     t.integer "location_id"
     t.integer "category_id"
@@ -33,13 +32,17 @@ ActiveRecord::Schema.define(version: 2021_04_25_004942) do
     t.text "suburb"
     t.integer "postcode"
     t.string "phone"
+    t.text "email"
     t.float "price"
     t.boolean "availability"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "images", default: [], array: true
   end
 
   create_table "locations", force: :cascade do |t|
+    t.text "suburb"
+    t.integer "postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +52,9 @@ ActiveRecord::Schema.define(version: 2021_04_25_004942) do
     t.text "email"
     t.text "password_digest"
     t.integer "location_id"
+    t.string "phone"
+    t.text "suburb"
+    t.integer "postcode"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

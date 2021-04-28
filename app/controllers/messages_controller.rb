@@ -6,16 +6,30 @@ require 'twilio-ruby'
 
 
   def alert
-    @account_sid = 'ACde6975edb99ba7419124d1cb340a09ad'
-    @auth_token = '9ccdde72b929716dbec0ed961bbeaf79'
+    @account_sid = Rails.application.secrets.twilio_account_sid
+    @auth_token = Rails.application.secrets.twilio_auth_token
     @client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
     @listing = Listing.find params[:listing_id]
 
     @message = @client.messages.create(
-      body: 'Hi there, Is this item still available?!',
+      body: params[:message],
       from: '+14088370527',
-      to:@listing.phone
+      to:'+61' +@listing.phone.to_s
+    )
+  end
+
+  def offer
+    @account_sid = Rails.application.secrets.twilio_account_sid
+    @auth_token = Rails.application.secrets.twilio_auth_token
+    @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+
+    @listing = Listing.find params[:listing_id]
+
+    @message = @client.messages.create(
+      body: params[:message],
+      from: '+14088370527',
+      to:'+61' +@listing.phone.to_s
     )
   end
 end

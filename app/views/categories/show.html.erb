@@ -1,0 +1,15 @@
+<h2>Category</h2>
+<div class="category">
+  <% @categories.each do |category| %>
+    <%= link_to category.name, category%><br>
+  <% end %>
+</div>
+
+<div class="category_post">
+  <%# check for all listings belongs to particulat category %>
+  <% @category.listings.each do |listing| %>
+  <%= cl_image_tag listing.images[0], :class => 'feature' if listing.images.present? %>
+  <h2><%= link_to listing.title, listing %></h2>
+  <h2><%= listing.price %></h2>
+  <% end %>
+</div>

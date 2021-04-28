@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'
   resources :listings
+  resources :categories
   resources :users do
     member do
       get 'listing'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-get 'alert' => 'messages#alert'
+  get 'alert' => 'messages#alert'
+  get 'offer' => 'messages#offer'
 
 end

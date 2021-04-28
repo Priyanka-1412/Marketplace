@@ -5,7 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.text :email
       t.text :password_digest
       t.integer :location_id
-
+      t.string :phone
+      t.text :suburb
+      t.integer :postcode
       t.boolean :admin, :default => false
       t.timestamps
     end

@@ -4,8 +4,9 @@
     <title>Project1</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -14,6 +15,8 @@
       <% if @current_user.present? %>
         <%= link_to "Users", users_path if @current_user.admin? %>
         <%= link_to "Browse All", listings_path %>
+        <%= link_to "Category", categories_path  %>
+        
         <%= link_to "Your Account", user_path(@current_user.id)%>
         <%= link_to "Your Posts", listing_user_path(@current_user.id) %>
         <%= link_to "Create New Post", new_listing_path %>
@@ -21,7 +24,7 @@
         <%= link_to "Logout, #{@current_user.email}", login_path, :method => 'delete' %>
         <form action="/search">
           <label>Search Item:</label>
-          <input type="text" id="search" placeholder="search" name="q" aria-label="Search">
+          <input type="text" id="search" placeholder="search" name="q" aria-label="Search" size="30">
         <button type="submit" name="button">Search</button>
         </form>
       <% else %>
@@ -29,6 +32,7 @@
         <%= link_to "Sign in", login_path %>
       <% end %>
     </nav>
+
 
 
   <!-- <div class="">
