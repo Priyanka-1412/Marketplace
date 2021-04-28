@@ -8,10 +8,10 @@
     </ol>
   <% end %>
 
-    <%= f.label :title %>
+    <%= f.label :title, :class => "label"%>
     <%= f.text_field :title, :required => true, size: "50" %>
 
-    <%= f.label :category_id %>
+    <%= f.label :category_id, :class => "label" %>
     <%= f.select :category_id, Category.pluck(:name, :id), placeholder:"select from menu", :include_blank => true, size: "50" %>
 
     <%= f.label :condition %>

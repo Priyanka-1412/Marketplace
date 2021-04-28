@@ -3,3 +3,29 @@
 <% @user_list.each do |list| %>
   <p><%= link_to list.title, listing_path(list.id)%></p>
 <% end %>
+
+<h1>Your Posts</h1>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @user_list.each do|list| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <%= link_to cl_image_tag(list.images[0], :class => "card-img-top cl_image", :width => "100%", :height => "225px"), listing_path if list.images.present? %>
+            <div class="card-body">
+              <div class="title">
+                <h5 class="card-title"><%= list.title %></h5>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= button_to "more details", list, :class => 'btn btn-sm btn-outline-secondary', :method => 'get' %>
+                </div>
+                <small class="text-muted"><%= "$ #{list.price }"%></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
