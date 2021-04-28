@@ -8,38 +8,35 @@
     </ol>
   <% end %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title, :required => true %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :required => true, size: "50" %>
 
-  <%= f.label :category_id %>
-  <%= f.select :category_id, Category.pluck(:name, :id), :include_blank => true %>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, Category.pluck(:name, :id), placeholder:"select from menu", :include_blank => true, size: "50" %>
 
-  <%= f.label :condition %>
-  <%= f.select :condition, ["New", "Used", "Used - Like new", "Used - Good", "Used - Fair"],:include_blank => true, :required => true%>
+    <%= f.label :condition %>
+    <%= f.select :condition, ["New", "Used", "Used - Like new", "Used - Good", "Used - Fair"],:include_blank => true, :required => true, size: "50"%>
 
-  <%= f.label :price %>
-  <%= f.number_field :price, placeholder: "$" %>
+    <%= f.label :price %>
+    <%= f.number_field :price, placeholder: "$" %>
 
-  <%= f.label :phone %>
-  <%= f.number_field :phone, country_code: 61, raise: true, placeholder: "+(61)412234344", pattern: "[+]{+}[0-9]{2}[0-9]{9}", :required => true%>
+    <%= f.label :description %>
+    <%= f.text_field :description,  placeholder: "Any Extra Details", height:'42px', width: '300px', size: "50"%>
 
-  <%= f.label :email %>
-  <%= f.text_field:email, placeholder: "pri@ga.com"%>
+    <%= f.label :availability %>
+    <%= f.select :availability, ["Available", "Sold out"], :class=> 'form-control' %>
 
-  <%= f.label :suburb %>
-  <%= f.text_field :suburb, placeholder: "Suburb & State", :required => true%>
+    <%= f.label :phone %>
+    <%= f.number_field :phone, country_code: 61, raise: true, placeholder: "+(61)412234344", pattern: "[+]{+}[0-9]{2}[0-9]{9}", :required => true, size: "50" %>
 
-  <%= f.label :postcode %>
-  <%= f.number_field :postcode, placeholder: "Postcode", :required => true%>
+    <%= f.label :suburb %>
+    <%= f.text_field :suburb, placeholder: "Suburb & State", :required => true, size: "50"%>
 
-  <%= f.label :availability %>
-  <%= f.select :availability, ["Available", "Sold out"] %>
+    <%= f.label :postcode %>
+    <%= f.number_field :postcode, placeholder: "Postcode", :required => true, size: "50"%>
 
-  <%= f.label :description %>
-  <%= f.text_field :description,  placeholder: "Any Extra Details", height:'42px', width: '300px' %>
-
-  <%= f.label :images %>
-  <%= f.file_field :images, :multiple => true %>
+    <%= f.label :images %>
+    <%= f.file_field :images, :multiple => true, size: "50" %>
 
   <%= f.submit %>
 <% end %>

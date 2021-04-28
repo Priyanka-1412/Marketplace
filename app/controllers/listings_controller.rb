@@ -16,11 +16,13 @@ class ListingsController < ApplicationController
     #create an object
     @search = @client.search(q: "#{@listing.suburb}, #{@listing.postcode}",format: 'json', addressdetails: '1', accept_language: 'en')
     #extract value from JSON response
-    @bounding_box = @search[0]["boundingbox"]
-    @south_latitude = @bounding_box[0]
-    @north_latitude = @bounding_box[1]
-    @west_longitude = @bounding_box[2]
-    @east_longitude = @bounding_box[3]
+    if @search.any?
+      @bounding_box = @search[0]["boundingbox"]
+      @south_latitude = @bounding_box[0]
+      @north_latitude = @bounding_box[1]
+      @west_longitude = @bounding_box[2]
+      @east_longitude = @bounding_box[3]
+    end
     #arrange longitude and latitude in bounding box as, bbox = min Longitude , min Latitude , max Longitude , max Latitude
     @bbox = @west_longitude + '%2C' + @south_latitude + '%2C' + @east_longitude + '%2C' + @north_latitude
     #extract value longitude and latitude values for marker

@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
+  max-width: 960px;
   background-color: #33cccc;
-  background-image: url();
+  // background-image: url("image6.jpeg")
 }
-
 nav {
   color: black;
 }
