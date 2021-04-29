@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
+  max-width: 1300px;
   margin: 0 auto;
-  max-width: 1200px;
   background-color: #33cccc;
   // background-image: url("image6.jpeg")
 }
@@ -26,3 +26,64 @@ nav {
 //   object-fit: cover;
 //   object-fit: cover;
 // }
+
+.category {
+  font-size: 1.5em;
+  padding-left: 10px;
+}
+
+.form-control {
+  width: 400px;
+}
+
+h2, h1,
+ {
+  margin:0 20px;
+}
+
+.post {
+  margin:20px 20px;
+
+}
+
+a {
+  padding-left: 10px;
+}
+
+.form-group {
+  margin: 0 20px;
+}
+
+.edit,
+.remove {
+  font-size: 1.5em;
+}
+
+#listing_condition,
+#listing_availability,
+#listing_category_id{
+    width: 400px;
+    display: block;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#listing_description {
+  width: 400px;
+  height: 100px;
+}
+
+::placeholder {
+  margin-top: 0;
+  font-size: 1em;
+  padding: 5px;
+}
