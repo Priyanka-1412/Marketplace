@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
       listing.update_attributes listing_params
       listing.save
     end
-    redirect_to listing_path(@current_user.id) # show page
+    redirect_to listing_path(listing) # show page
   end
 
   def destroy

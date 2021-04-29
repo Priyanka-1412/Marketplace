@@ -8,7 +8,7 @@
       <% @user_list.each do|list| %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <%= link_to cl_image_tag(list.images[0], :class => "card-img-top cl_image", :width => "100%", :height => "225px"), listing_path if list.images.present? %>
+            <%= link_to cl_image_tag(list.images[0], :class => "card-img-top cl_image", :width => "100%", :height => "225px"), listing_path(list) if list.images.present? %>
             <div class="card-body">
               <div class="title">
                 <h5 class="card-title"><%= list.title %></h5>
