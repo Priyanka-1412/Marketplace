@@ -33,7 +33,7 @@
         <ul>
           <li>Title: <%= @listing.title %></li>
           <li>Description: <%= @listing.description%></li>
-          <l1>Category: <%= @listing.category.name%></l1>
+          <l1>Category: <%= @listing.category.name if @listing.category.present?%></l1>
           <li>Price: <%= number_to_currency @listing.price %></li>
           <li>Phone: <%= number_to_phone @listing.phone,country_code: 61, raise: true %></li>
           <li>Suburb: <%= @listing.suburb %></li>
