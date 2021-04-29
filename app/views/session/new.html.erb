@@ -1,37 +1,23 @@
-<div class="album py-5 bg-gradient-success text-dark">
-  <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-          <div class="card mb-12 shadow-sm text-center">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                </div>
-                <%= form_tag login_path do %>
-                <div class="form-group justify-content-between align-items-center">
-                  <% if flash[:error_message] %>
-                    <h2><%= flash[:error_message] %></h2>
-                  <% end %>
-                  <%= label_tag :email%>
-                  <%= email_field_tag :email, nil, :class=> 'form-control' %>
-                </div>
+<h1 id="sign_in_form">Log In</h1>
 
-                <div class="form-group justify-content-between align-items-center">
-                  <%= label_tag :password %>
-                  <%= password_field_tag :password, nil, :class=> 'form-control' %>
-                </div>
+<%= form_tag login_path do %>
 
-                <%= submit_tag "Sign In", :class=>"btn btn-primary"%><br>
-                <div class="register">
-                  <%= "Dont't have an account? " %><%= link_to "Register now", new_user_path%>
-                </div>
-                <% end %>
-                <div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
+<% if flash[:error_message] %>
+  <h2 id="sign_in_form"><%= flash[:error_message] %></h2>
+<% end %>
+
+<div class="form-group" id="sign_in_form">
+  <%= label_tag :email%>
+  <%= email_field_tag :email, nil, :class=> 'form-control' %>
 </div>
+
+<div class="form-group" id="sign_in_form">
+  <%= label_tag :password %>
+  <%= password_field_tag :password, nil, :class=> 'form-control' %>
+</div>
+
+<div id="sign_in_form">
+  <%= submit_tag "Sign In", :class=>"btn btn-primary"%>
+  <%= "Dont't have an account? " %><%= link_to "Register now", new_user_path %>
+</div>
+<% end %>

@@ -4,7 +4,7 @@
 body {
   max-width: 1300px;
   margin: 0 auto;
-  background-color: #33cccc;
+  background-color: #b3cccc;
   // background-image: url("image5.png")
 }
 
@@ -80,8 +80,18 @@ iframe, h3 {
 
 .new_user{
   margin-top: 20px;
-  margin-left: 350px;
+  margin-left: 400px;
 }
+
+#sign_in_form {
+    margin-top: 20px;
+    margin-left: 400px;
+}
+.update {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
 h1 {
   margin: 0 20px;
 }
@@ -184,4 +194,8 @@ button.hover {
 
 .register {
   padding-left: 20px;
+}
+
+.create {
+
 }

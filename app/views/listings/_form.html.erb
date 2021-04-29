@@ -32,7 +32,7 @@
     <div class="form-group">
       <%= f.label :availability %>
       <br>
-      
+
       <%= f.select :availability, ["Available", "Sold out"], :class=> 'form-control', :class=> 'form-control' %>
     </div>
 
@@ -62,5 +62,5 @@
       <%= f.text_field :description,  placeholder: "Any Extra Details", :class=> 'form-control'%>
     </div>
 
-  <%= f.submit "Add Post", :class=> "post"%>
+  <%= f.submit "Add Post", :class=>"btn btn-primary"%>
 <% end %>
