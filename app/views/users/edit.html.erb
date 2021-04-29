@@ -12,14 +12,13 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.label :phone %>
   <%= f.number_field :phone, country_code: 61, raise: true, placeholder: "0412345678" %>
 
   <%= f.label :suburb %>
   <%= f.text_field :suburb, placeholder: "Suburb & State" %>
 
   <%= f.label :postcode %>
-  <%= f.number_field :postcode, placeholder: "Postcode" %>
+  <%= f.number_field :postcode, placeholder: "Postcode" %> 
 
   <%= f.submit %>
 <% end %>
