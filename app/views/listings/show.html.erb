@@ -1,78 +1,75 @@
+<div class="container">
 
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <h2><%= @listing.title %></h2>
+<div class="containerA">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h2><%= @listing.title %></h2>
+    </div>
+  </div>
+  <div class="row">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <% @listing.images.each_with_index do |image, i| %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="active"></li>
+            <% end %>
+          </ol>
+          <div class="carousel-inner">
+              <% @listing.images.each_with_index do |image, i| %>
+                <div class="carousel-item <%= "active" if i == 0 %>">
+                  <%= cl_image_tag image, :class=>"d-block w-100"%>
+                </div>
+              <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+      </div>
+      <div class="product_details">
+        <ul>
+          <li>Title: <%= @listing.title %></li>
+          <li>Description: <%= @listing.description%></li>
+          <l1>Category: <%= @listing.category.name%></l1>
+          <li>Price: <%= number_to_currency @listing.price %></li>
+          <li>Phone: <%= number_to_phone @listing.phone,country_code: 61, raise: true %></li>
+          <li>Suburb: <%= @listing.suburb %></li>
+          <li>Postcode: <%= @listing.postcode %></li>
+          <li>Availability: <%= @listing.availability %></li>
+        </ul>
+      </div>
+      <div>
+        <form action="/alert">
+          <label>Send message to seller</label><br>
+          <%= hidden_field_tag :listing_id, @listing.id %>
+          <input type="text" placeholder="Hi, I'm interested, Is this still available?" name= "message" class="sms">
+          <button type="submit" name="button">Send</button>
+        </form>
+      </div>
+      <div>
+        <form action="/offer">
+          <label>Make an offer</label><br>
+            <%= hidden_field_tag :listing_id, @listing.id %>
+            <input type="text" placeholder= "$", name= "message" class="offer">
+            <button type="submit" name="button">Go</button>
+        </form>
+      </div>
+
+      <% if @current_user.present? && @current_user.id == @listing.user_id %>
+        <%= link_to "Edit", edit_listing_path, :class=> "edit" %>
+        <%= link_to "Remove Post", @listing , :class=> "remove", :method => 'delete', :data => { :confirm => 'Are you sure, You want to remove your post?' }%>
+      <% end %>
   </div>
 </div>
 
-<div class="row">
-  <div class="class="col-md-9">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <% @listing.images.each_with_index do |image, i| %>
-            <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="active"></li>
-          <% end %>
-        </ol>
-      <div class="carousel-inner">
-          <% @listing.images.each_with_index do |image, i| %>
-            <div class="carousel-item <%= "active" if i == 0 %>">
-              <%= cl_image_tag image, :class=>"d-block w-50"%>
-            </div>
-          <% end %>
-      </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-  <div class="product_details">
-    <ul>
-      <li>Title: <%= @listing.title %></li>
-      <li>Description: <%= @listing.description %></li>
-      <l1>Category: <%= @listing.category.name%></l1>
-      <li>Price: <%= number_to_currency @listing.price %></li>
-      <li>Phone: <%= number_to_phone @listing.phone,country_code: 61, raise: true %></li>
-      <li>Suburb: <%= @listing.suburb %></li>
-      <li>Postcode: <%= @listing.postcode %></li>
-      <li>Availability: <%= @listing.availability %></li>
-    </ul>
-  </div>
-
-
-    <div class="sms">
-      <form action="/alert">
-        <label>Send message to seller</label>
-        <%= hidden_field_tag :listing_id, @listing.id %>
-        <input type="text" placeholder="Hi, I'm interested, Is this still available?" name= "message", size="50">
-        <button type="submit" name="button">Send</button>
-      </form>
-    </div>
-
-    <div class="offer">
-      <form action="/offer">
-        <label>Make an offer</label>
-          <%= hidden_field_tag :listing_id, @listing.id %>
-          <input type="text" placeholder= "$", name= "message", size="50">
-          <button type="submit" name="button">Go</button>
-      </form>
-    </div>
-
-    <% if @current_user.id == @listing.user_id %>
-      <%= link_to "Edit", edit_listing_path %>
-      <%= link_to "Remove Post", @listing, :method => 'delete', :data => { :confirm => 'Are you sure, You want to remove your post?' }%>
-    <% end %>
-  </div>
-
-  <div class="class="col-md-6">
+<div class="containerB">
     <iframe width="425" height="350" frameborder="0" scrolling="no"
       marginheight="0" marginwidth="0"
       src="https://www.openstreetmap.org/export/embed.html?
-      bbox=<%= @bbox %>&amp;layer=mapnik&amp;marker=<%= @marker%>" 
+      bbox=<%= @bbox %>&amp;layer=mapnik&amp;marker=<%= @marker%>"
       style="border: 1px solid black">
     </iframe>
 
@@ -81,9 +78,11 @@
         <a href="https://www.openstreetmap.org/?mlat=-33.6873062&amp;mlon=150.8089077#map=12/-33.6873062/150.8089077">
         View Larger Map</a>
       </small>
-      </div>
     </div>
 </div>
+
+</div>
+
 
 <!-- <iframe width="425" height="350" frameborder="0" scrolling="no"
 marginheight="0" marginwidth="0"

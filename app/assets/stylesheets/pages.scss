@@ -5,7 +5,7 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   background-color: #33cccc;
-  // background-image: url("image6.jpeg")
+  // background-image: url("image1.jpeg")
 }
 
 nav {
@@ -36,7 +36,7 @@ nav {
   width: 400px;
 }
 
-h2, h1,
+ h1,
  {
   margin:0 20px;
 }
@@ -57,11 +57,14 @@ a {
 .edit,
 .remove {
   font-size: 1.5em;
+  margin-top: 20px;
 }
 
 #listing_condition,
 #listing_availability,
-#listing_category_id{
+#listing_category_id,
+.offer,
+.sms {
     width: 400px;
     display: block;
     height: calc(1.5em + 0.75rem + 2px);
@@ -86,4 +89,42 @@ a {
   margin-top: 0;
   font-size: 1em;
   padding: 5px;
+}
+
+button {
+  width: 70px;
+  border-radius: 0.8em;
+  margin-top: 5px;
+}
+
+button.hover {
+  color: #669999;
+}
+
+.container {
+  display: flex;
+}
+
+.containerA {
+  margin: 35px 10px;
+  flex: 1;
+  width: 40%;
+  padding: 20px;
+}
+
+.containerB {
+  margin: 80px 10px;
+  width: 40%;
+  padding: 20px;
+  // border: 2px solid red;
+}
+
+.w-50 {
+    width: 100%;
+}
+
+.btn-primary,
+ {
+  margin: 20px 20px;
+  border: 1px solid #ced4da;
 }
