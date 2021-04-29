@@ -13,7 +13,7 @@ class CreateListings < ActiveRecord::Migration[5.2]
       t.string :phone
       t.text :email
       t.float :price
-      t.boolean :availability
+      t.text :availability
       t.timestamps
     end
   end
