@@ -1,113 +1,26 @@
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <h2><%= @listing.title %></h2>
-  </div>
-</div>
 
-<div class="row">
-<div class="class="col-md-9">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <% @listing.images.each_with_index do |image, i| %>
-        <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="active"></li>
-      <% end %>
-    </ol>
-    <div class="carousel-inner">
-      <% @listing.images.each_with_index do |image, i| %>
-          <div class="carousel-item <%= "active" if i == 0 %>">
-            <%= cl_image_tag image, :class=>"d-block w-50"%>
-          </div>
-      <% end %>
+<div class="home_page">
+  <h1>Log In</h1>
+  <div class=""login_form"">
+    <% if flash[:error_message] %>
+      <h2><%= flash[:error_message] %></h2>
+    <% end %>
+
+    <%= form_tag login_path do %>
+    <div class="form-group">
+      <%= label_tag :email%>
+      <%= email_field_tag :email, nil, :class=> 'form-control' %>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 
-  <div class="product_details">
-    <ul>
-      <li>Title: <%= @listing.title %></li>
-      <li>Description: <%= @listing.description %></li>
-      <l1>Category: <%= @listing.category.name%></l1>
-      <li>Price: <%= number_to_currency @listing.price %></li>
-      <li>Phone: <%= number_to_phone @listing.phone,country_code: 61, raise: true %></li>
-      <li>Suburb: <%= @listing.suburb %></li>
-      <li>Postcode: <%= @listing.postcode %></li>
-      <li>Availability: <%= @listing.availability %></li>
-    </ul>
-  </div>
-
-
-  <div class="sms">
-    <form action="/alert">
-      <label>Send message to seller</label>
-      <%= hidden_field_tag :listing_id, @listing.id %>
-      <input type="text" placeholder="Hi, I'm interested, Is this still available?" name= "message", size="50">
-    <button type="submit" name="button">Send</button>
-    </form>
-  </div>
-
-  <div class="offer">
-    <form action="/offer">
-      <label>Make an offer</label>
-      <%= hidden_field_tag :listing_id, @listing.id %>
-      <input type="text" placeholder= "$", name= "message", size="50">
-    <button type="submit" name="button">Go</button>
-    </form>
-  </div>
-
-  <% if @current_user.id == @listing.user_id %>
-    <%= link_to "Edit", edit_listing_path %>
-    <%= link_to "Remove Post", @listing, :method => 'delete', :data => { :confirm => 'Are you sure, You want to remove your post?' }%>
-  <% end %>
-</div>
-
-<div class="col-md-6">
-  <iframe width="425" height="350" frameborder="0" scrolling="no"
-  marginheight="0" marginwidth="0"
-  src="https://www.openstreetmap.org/export/embed.html?
-  bbox=<%= @bbox %>&amp;layer=mapnik&amp;marker=<%= @marker%>"
-  style="border: 1px solid black">
-  </iframe>
-
-  <div class="maplink">
-    <small>
-      <a href="https://www.openstreetmap.org/?mlat=-33.6873062&amp;mlon=150.8089077#map=12/-33.6873062/150.8089077">
-      View Larger Map</a>
-    </small>
+    <div class="form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, :class=> 'form-control' %>
     </div>
+
+    <%= submit_tag "Sign In", :class=>"btn btn-primary"%><br>
+    <div class="register">
+      <%= "Dont't have an account? " %><%= link_to "Register now", new_user_path%>
+    </div>
+    <% end %>
   </div>
 </div>
-
-<!-- <iframe width="425" height="350" frameborder="0" scrolling="no"
-marginheight="0" marginwidth="0"
-src="https://www.openstreetmap.org/export/embed.html?bbox=-2.493209838867188%2C53.50540525319918%2C-2.246360778808594%2C53.61980121473449&amp;layer=mapnik&amp;marker=53.56274386269267%2C-2.3699569702148438"
-style="border: 1px solid black"></iframe>
-<br/><small>
-<a href="https://www.openstreetmap.org/?mlat=53.5627&amp;mlon=-2.3700#map=12/53.5626/-2.3698">
-View Larger Map</a></small> -->
-<!--
-
- south Latitude, north Latitude, west Longitude, east Longitude -->
-
-<!-- <iframe width="425" height="350" frameborder="0" scrolling="no"
-marginheight="0" marginwidth="0"
-src="https://www.openstreetmap.org/export/embed.html?
-bbox=150.8089077%2C-33.6873062%2C150.8089077%2C-33.6873062&amp;layer=mapnik&amp;
-marker=53.56274386269267%2C-2.3699569702148438"
-style="border: 1px solid black"></iframe>
-<br/><small>
-<a href="https://www.openstreetmap.org/?mlat=-33.6873062&amp;mlon=150.8089077#map=12/-33.6873062/150.8089077">
-View Larger Map</a></small> -->
-
-
-<!-- <iframe width="425" height="350" frameborder="0" scrolling="no"
-marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?
-bbox=150.8030122%2C-33.7285588%2C150.8532505%2C-33.67767&amp;layer=mapnik&amp;marker=150.8147975%2C-33.6956552"
-style="border: 1px solid black">
-</iframe> -->

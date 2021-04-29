@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'pages#home'
+  root :to => 'listings#index'
   resources :listings
   resources :categories
   resources :users do

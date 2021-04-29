@@ -5,13 +5,43 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   background-color: #33cccc;
-  // background-image: url("image1.jpeg")
+  // background-image: url("image5.png")
 }
 
 nav {
   color: black;
   width: 100vw;
   font-size: 1em;
+}
+
+.row {
+  max-width: 500 !important;
+  margin-left: 30px !important;
+  margin-top: 20px;
+}
+
+ol, ul, dl {
+  margin-top: 80px !important;
+  list-style: none;
+}
+
+.message {
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+iframe, h3 {
+  margin-left: 38px !important;
+}
+
+.title {
+  font-size: 2em;
+}
+
+
+.maplink {
+  font-size: 1.5em;
+  margin-left: 38px;
 }
 
 // .carousel-item img {
@@ -27,18 +57,33 @@ nav {
 //   object-fit: cover;
 // }
 
-.category {
-  font-size: 1.5em;
+.category,
+.category_heading {
   padding-left: 10px;
+}
+
+.card-body:hover::before,
+.card-body:hover::after,
+ {
+  color: green;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.category_list {
+  font-size: 3em;
+  padding-left: 20px;
 }
 
 .form-control {
   width: 400px;
 }
 
- h1,
- {
-  margin:0 20px;
+.new_user{
+  margin-top: 20px;
+  margin-left: 350px;
+}
+h1 {
+  margin: 0 20px;
 }
 
 h2 {
@@ -50,6 +95,7 @@ h2 {
 }
 
 a {
+  font-size: 1.5em;
   padding-left: 10px;
 }
 
@@ -60,7 +106,8 @@ a {
 .edit,
 .remove {
   font-size: 1.5em;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-left: 30px;
 }
 
 #listing_condition,
@@ -104,26 +151,21 @@ button.hover {
   color: #669999;
 }
 
-.container {
+.box {
   display: flex;
 }
 
-.containerA {
-  margin: 35px 10px;
-  flex: 1;
-  width: 40%;
-  padding: 20px;
+#search {
+  margin-left: 10px;
+  border: 2px solid #000066;
+}
+.d-block {
+  width: 500px !important;
+  height: 350px !important;
 }
 
-.containerB {
-  margin: 80px 10px;
-  width: 40%;
-  padding: 20px;
-  // border: 2px solid red;
-}
-
-.w-50 {
-    width: 100%;
+.carousel-item  {
+  width: 100%;
 }
 
 .btn-primary,
@@ -134,4 +176,8 @@ button.hover {
 
 .category_name {
   font-size: 1.2em;
+}
+
+.register {
+  padding-left: 20px;
 }
