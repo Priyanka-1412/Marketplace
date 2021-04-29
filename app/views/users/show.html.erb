@@ -2,13 +2,10 @@
 
   <p>Name: <%= @user.name %></p>
   <p>email: <%= @user.email %></p>
-  <p>Phone: <%= @user.phone %></p>
-  <p>Suburb: <%= @user.suburb %></p>
-  <p>Postcode: <%= @user.postcode %></p>
+  
 
   <%= link_to "Edit", edit_user_path, :class => "edit"%>
 
-  <%# permit admin to remove users from list   %>
   <% if @current_user.admin? %>
     <%= link_to "Remove User", @user, :method => 'delete', :data => {:confirm => "Are you sure, you want to remove user permanently?"}, :class => "remove" %>
   <% end %>
