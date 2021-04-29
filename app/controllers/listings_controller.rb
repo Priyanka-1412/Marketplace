@@ -61,10 +61,12 @@ class ListingsController < ApplicationController
       params[:listing][:images].each do |image|
         req = Cloudinary::Uploader.upload image
         listing.images << req["public_id"]
+
+
       end
-      listing.update_attributes listing_params
-      listing.save
     end
+    listing.update_attributes listing_params
+    listing.save
     redirect_to listing_path(listing) # show page
   end
 
