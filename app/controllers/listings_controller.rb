@@ -61,8 +61,6 @@ class ListingsController < ApplicationController
       params[:listing][:images].each do |image|
         req = Cloudinary::Uploader.upload image
         listing.images << req["public_id"]
-
-
       end
     end
     listing.update_attributes listing_params

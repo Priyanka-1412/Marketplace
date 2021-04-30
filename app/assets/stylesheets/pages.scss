@@ -196,6 +196,25 @@ button.hover {
   padding-left: 20px;
 }
 
-.create {
+#zoom {
+transition: transform .2s; /* Animation */
+width: 200px;
+margin: 0 auto;
+}
 
+#zoom:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+#card_body {
+  background-color: #AEB6BF;
+}
+
+#listing_card_body{
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+#listing_card_body:hover{
+  transform: scale(1.05);
 }
