@@ -1,9 +1,6 @@
 class MessagesController < ApplicationController
-
 require 'rubygems'
 require 'twilio-ruby'
-
-
 
   def alert
     @account_sid = Rails.application.secrets.twilio_account_sid
