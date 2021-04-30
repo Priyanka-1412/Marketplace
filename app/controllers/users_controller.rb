@@ -17,19 +17,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params #strong params to control input in form
 
-    respond_to do |format|
+    # respond_to do |format|
       if @user.save  # save user if truthy
         session[:user_id] = @user.id
+        redirect_to listings_path
         # Tell the UserMailer to send a welcome email after save
-        UserMailer.with(user: @user).welcome_email.deliver_now
-
-        format.html { redirect_to(root_path, notice: 'User was successfully created.') }
-        format.json { render json: @user, status: :created, location: @user }
+      #   UserMailer.with(user: @user).welcome_email.deliver_now
+      #
+      #   format.html { redirect_to(root_path, notice: 'User was successfully created.') }
+      #   format.json { render json: @user, status: :created, location: @user }
+      # else
+      #   format.html { render action: 'new' }
+      #   format.json { render json: @user.errors, status: :unprocessable_entity }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      render :new
       end
-    end
+    # end
   end
 
   def edit
