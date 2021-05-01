@@ -28,7 +28,7 @@ An online marketplace is a type of e-commerce website where product or service i
   ![Wireframe](app/assets/images/Wireframe.jpeg)
 
 * ##### Database Model:
-  ![Database Model with associations](app/assets/images/databasemodel.jpeg)
+  ![Database Model with associations](app/assets/images/database.jpeg)
 
 * ##### What can you do as a User?:
   * You can log in or sign up, as well as log out.
