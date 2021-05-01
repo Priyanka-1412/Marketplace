@@ -1,6 +1,6 @@
 # MarketPlace
 
-#### Please ckick [here] (https://priyankapatel-project1.herokuapp.com) to take an advantage online Marketplace.
+#### Please ckick [here](https://priyankapatel-project1.herokuapp.com) to take an advantage online Marketplace.
 
 ## Introduction
 
