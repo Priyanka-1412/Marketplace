@@ -5,7 +5,6 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   background-color: #b3cccc;
-  // background-image: url("image5.png")
 }
 
 nav {
@@ -38,24 +37,10 @@ iframe, h3 {
   font-size: 2em;
 }
 
-
 .maplink {
   font-size: 1.5em;
   margin-left: 38px;
 }
-
-// .carousel-item img {
-//   max-width: 30em;
-//   max-height: 20em;
-// }
-
-
-// .carousel-item img{
-//   width:  200;
-//   height: 400px;
-//   object-fit: cover;
-//   object-fit: cover;
-// }
 
 .category,
 .category_heading {
@@ -63,12 +48,12 @@ iframe, h3 {
 }
 
 .card-body:hover::before,
-.card-body:hover::before,
- {
+.card-body:hover::before {
   color: green;
   opacity: 1;
   transform: translateY(-2px);
 }
+
 .category_list {
   font-size: 3em;
   padding-left: 20px;
@@ -78,7 +63,7 @@ iframe, h3 {
   width: 400px;
 }
 
-.new_user{
+.new_user {
   margin-top: 20px;
   margin-left: 400px;
 }
@@ -99,9 +84,9 @@ h1 {
 h2 {
   font-size: 1.5em
 }
+
 .post {
   margin:20px 20px;
-
 }
 
 a {
@@ -109,10 +94,11 @@ a {
   padding-left: 10px;
 }
 
-p{
+p {
   font-size: 1.4em;
   margin: 10px 40px;
 }
+
 .form-group {
   margin: 0 20px;
 }
@@ -182,8 +168,7 @@ button.hover {
   width: 100%;
 }
 
-.btn-primary,
- {
+.btn-primary {
   margin: 20px 20px;
   border: 1px solid #ced4da;
 }
@@ -210,11 +195,22 @@ margin: 0 auto;
   background-color: #AEB6BF;
 }
 
-#listing_card_body{
+#listing_card_body {
   transition: transform .2s;
   margin: 0 auto;
 }
 
-#listing_card_body:hover{
+#listing_card_body:hover {
   transform: scale(1.05);
+}
+
+.message_box {
+  text-align: center;
+  border: 3px solid black;
+}
+
+.sign_in_message {
+  border: 3px solid black;
+  padding-left: 10px;
+  margin-right: 150px;
 }

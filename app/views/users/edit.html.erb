@@ -1,4 +1,5 @@
 <h2 class="update">Update Profile</h2>
+<%# print error messags if its any errors? %>
 <% if @user.errors.any? %>
   <ol>
     <% @user.errors.full_messages.each do |msg| %>

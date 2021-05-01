@@ -1,7 +1,7 @@
 <h1 id="sign_in_form">Log In</h1>
 
 <%= form_tag login_path do %>
-
+<%# error message for signin form %>
 <% if flash[:error_message] %>
   <h2 id="sign_in_form"><%= flash[:error_message] %></h2>
 <% end %>

@@ -1,5 +1,5 @@
 <%= form_for @listing, :html => {:multipart => true } do |f| %>
-
+  <%# check for error in listing and display error message %>
   <% if @listing.errors.any? %>
     <ol>
       <% @listing.errors.full_messages.each do |msg| %>

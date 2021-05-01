@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :listings
+  has_many :listings #category has many listings
 end

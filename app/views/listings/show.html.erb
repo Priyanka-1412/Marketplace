@@ -8,6 +8,7 @@
     <div class="row" width = 500>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
+          <!-- loop through an array of images and display using indicator -->
           <% @listing.images.each_with_index do |image, i| %>
             <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="active"></li>
           <% end %>
@@ -32,12 +33,13 @@
 
       <div > <br> <br>
         <h3>Location</h3>
+        <!-- used iframe to diaply openstreetmap -->
         <iframe width="425" height="350" frameborder="0" scrolling="no"
           marginheight="0" marginwidth="0"
           src="https://www.openstreetmap.org/export/embed.html?bbox=<%= @bbox %>&amp;layer=mapnik&amp;marker=<%= @marker%>"
           style="border: 1px solid black">
         </iframe>
-
+        <!-- link to openstreetmap -->
         <div class="maplink">
           <small>
             <a href="https://www.openstreetmap.org/?mlat=-33.6873062&amp;mlon=150.8089077#map=12/-33.6873062/150.8089077">
@@ -60,22 +62,31 @@
         </ul>
       </div>
       <div>
+        <!-- form for to send message for post enquiry -->
         <form action="/alert" class="message">
           <label>Send message to seller</label><br>
           <%= hidden_field_tag :listing_id, @listing.id %>
-          <input type="text" placeholder="Hi, I'm interested, Is this still available?" name= "message" class="sms">
+          <%# if no session id then show message to sign in %>
+          <% if session[:user_id].present?  %>
+          <input type="text" placeholder="Hi, I'm interested, Is this still available?" name= "message" class="sms" required = "true" >
           <button type="submit" name="button">Send</button>
+          <% else %>
+          <h2 class= "sign_in_message"><%= link_to "Please sign in to contact seller", login_path %></h2>
+          <% end %>
         </form>
       </div>
       <div>
+        <!-- form for to send message for post enquiry -->
         <form action="/offer" class="message">
           <label>Make an offer</label><br>
             <%= hidden_field_tag :listing_id, @listing.id %>
-            <input type="text" placeholder= "$", name= "message" class="offer">
+            <% if session[:user_id].present?  %>
+            <input type="number" placeholder= "$", name= "message" class="offer" required = "true">
             <button type="submit" name="button">Go</button>
+            <% end %>
         </form>
       </div>
-
+      <%# allow user to edit or remove post if its belong to current user %>
       <% if @current_user.present? && @current_user.id == @listing.user_id %>
         <%= link_to "Edit", edit_listing_path, :class=> "edit" %>
         <%= link_to "Remove Post", @listing , :class=> "remove", :method => 'delete', :data => { :confirm => 'Are you sure, You want to remove your post?' }%>

@@ -35,37 +35,37 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
   end
-
+  #create new post
   def create
     listing = Listing.create listing_params #stong params
     if params[:listing][:images].present?
       params[:listing][:images].each do |image|
-        req = Cloudinary::Uploader.upload image
-        listing.images << req["public_id"]
+        req = Cloudinary::Uploader.upload image #request cloudinary for images and save in variable
+        listing.images << req["public_id"] #append images to listing
       end
     end
-    @current_user.listings << listing
+    @current_user.listings << listing # append listing to current user
     redirect_to listing
   end
 
   def edit
-    @listing = Listing.find params[:id]
+    @listing = Listing.find params[:id] #get the current users ID for edit
   end
 
 
   def update
-    listing = Listing.find params[:id]
+    listing = Listing.find params[:id] #post edited details
 
     if params[:listing][:images].present?
       listing.images = []
       params[:listing][:images].each do |image|
-        req = Cloudinary::Uploader.upload image
-        listing.images << req["public_id"]
+        req = Cloudinary::Uploader.upload image #request cloudinary for images and save in variable
+        listing.images << req["public_id"] #append images to listing
       end
     end
     listing.update_attributes listing_params
     listing.save
-    redirect_to listing_path(listing) # show page
+    redirect_to listing_path(listing) # redirect to show page
   end
 
   def destroy
@@ -73,7 +73,7 @@ class ListingsController < ApplicationController
     listing.destroy
     redirect_to listings_path
   end
-
+  # set strong params for listing
   private
   def listing_params
     params.require(:listing).permit(:title, :description, :category_id, :condition, :price, :phone, :availability, :images, :suburb, :postcode)

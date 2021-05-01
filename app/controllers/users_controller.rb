@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       if @user.save  # save user if truthy
         session[:user_id] = @user.id
         redirect_to listings_path
-        # Tell the UserMailer to send a welcome email after save
+      # Tell the UserMailer to send a welcome email after save
       #   UserMailer.with(user: @user).welcome_email.deliver_now
       #
       #   format.html { redirect_to(root_path, notice: 'User was successfully created.') }
@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  #set strong params for new users and update user details
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone, :suburb, :postcode)
