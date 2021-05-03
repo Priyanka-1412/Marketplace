@@ -1,11 +1,9 @@
 <%= form_for @user do |f| %>
 <%# print error messags if its any errors? %>
 <% if @user.errors.any? %>
-
     <% @user.errors.full_messages.each do |msg| %>
     <h2><%= msg %></h2>
     <% end %>
-
 <% end %>
 <div class="form-group">
   <%= f.label :name %>
