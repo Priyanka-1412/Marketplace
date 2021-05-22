@@ -1,6 +1,6 @@
 # MarketPlace
 
-#### Please ckick [here](https://priyankapatel-project1.herokuapp.com) to take an advantage online Marketplace.
+#### Please click [here](https://priyankapatel-project1.herokuapp.com) to take an advantage online Marketplace.
 
 ## Introduction
 
@@ -25,7 +25,7 @@ An online marketplace is a type of e-commerce website where product or service i
 
 * ##### Wireframe:
 
-  ![Wireframe](app/assets/images/Wireframe.jpeg)
+  ![Wireframe](app/assets/images/wireframe.jpeg)
 
 * ##### Database Model:
   ![Database Model with associations](app/assets/images/database.jpeg)
